@@ -10,7 +10,7 @@ htmlFiles.forEach((file) => {
 });
 
 export default defineConfig({
-  base: '/vite-landing-template',
+  base: '/GronisLanding',
   root: 'src',
   publicDir: '../public',
   plugins: [
