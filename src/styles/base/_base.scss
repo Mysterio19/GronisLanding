@@ -1,4 +1,69 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $white;
+}
+
 #wrapper {
     position: relative;
     overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1520px;
+    padding: 0 40px;
+    margin: 0 auto;
+
+    @include media('<phone') {
+        padding: 0 12px;
+    }
+}
+
+.title {
+    padding-bottom: 40px;
+    color: $black;
+    font: $regular 50px/1.1 $Montserrat;
+    text-transform: uppercase;
+
+    @include media('<desktop') {
+        padding-bottom: 16px;
+        font-size: 38px;
+    }
+
+    @include media('<phone') {
+        font-size: 24px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 42px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    font: $semi-bold 16px $Montserrat;
+    letter-spacing: 0.32px;
+    transition: $anim_03;
+
+    &.main {
+        background-color: $accent;
+        color: $white;
+
+        &:hover {
+            background-color: $orange;
+        }
+    }
+
+    &.sec {
+        background-color: transparent;
+        border-color: $accent;
+        color: $accent;
+
+        &:hover {
+            background-color: $accent;
+            color: $white;
+        }
+    }
 }

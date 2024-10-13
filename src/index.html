@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gronis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.scss">
 </head>
 
@@ -13,10 +16,75 @@
     {{> header }}
     <main>
       <section class="main-section">
+        <picture class="picture">
+            <source media="(max-width: 600px)" srcset="./images/main-img-bg-mob.webp" />
+            <img class="main-bg" src="./images/main-img-bg.webp" alt="Bg img" />
+        </picture>
         <div class="container">
           <div class="content">
-            
+            <h1 class="main-title">Steinverarbeitungsanlage</h1>
+            <p class="main-text">Verarbeitung und Herstellung von <br> Natursteinprodukten in Deutschland!</p>
+            <a class="btn main" href="#">BEFEHL</a>
           </div>
+        </div>
+        <a class="arrow-down" href="#advantages">
+            <img class="main-bg" src="./images/icons/arrow-down.svg" alt="Arrow down" />
+        </a>
+      </section>
+      <section class="advantages-section" id="advantages">
+        <div class="container">
+            <div class="content">
+                <h2 class="title">Was sind unsere vorteile?</h2>
+                <div class="block">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Niedrige herstellerpreise</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">Wir bieten einige der niedrigsten Preise auf dem ukrainischen Markt und sind immer bereit, attraktive Rabatte, Sonderangebote und verschiedene Boni anzubieten.</p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Weltweite lieferung</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">Wir liefern nicht nur in Städte der Ukraine, sondern weltweit pünktlich, zuverlässig und ohne Verzögerungen an unsere Kunden in allen Regionen und Ländern.</p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Produktion auf bestellung</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">Unser Unternehmen kann jedes Produkt aus Naturstein nach Ihren Vorgaben in beliebiger Größe, form und farbe individuell und präzise anfertigen und liefern.</p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Groß- und einzelhandel</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">Bei uns können Sie alle Produkte sowohl im Einzelhandel als auch im Großhandel direkt vom Hersteller mit garantierter Qualität und zu fairen Preisen erwerben.</p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Fertiges Sortiment</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">Neben der individuellen Produktion finden Sie in unserem Katalog eine große Auswahl an lagernden Lösungen in verschiedenen Stilen, Größen und Farben.</p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h3 class="accordion-title">Hohe arbeitsqualität</h3>
+                                <img class="accordion-plus" src="./images/icons/accordion-plus.svg" alt="Plus" />
+                            </div>
+                            <p class="accordion-content">In der Produktion wird eine mehrstufige Qualitätskontrolle durchgeführt, und für die Herstellung verwenden wir Rohstoffe höchster Qualität.</p>
+                        </div>
+                    </div>
+                    <div class="img-wrap">
+                        <img src="./images/advantages-img.webp" alt="Img">
+                    </div>
+                </div>
+            </div>
         </div>
       </section>
     </main>
