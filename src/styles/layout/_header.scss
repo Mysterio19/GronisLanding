@@ -1,1 +1,263 @@
-#header {}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 26px 0;
+    z-index: 10;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(99, 95, 90, 0.2);
+        box-shadow: 0px 2px 4px 0px rgba(92, 92, 92, 0.25);
+        backdrop-filter: blur(20px);
+        z-index: -1;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .logo {
+        z-index: 1;
+
+        svg {
+            display: block;
+
+            @include media('<laptop') {
+                max-width: 100px;
+            }
+        }
+    }
+
+    .menu-block {
+        display: flex;
+        align-items: center;
+        gap: 148px;
+
+        @include media('<widescreen') {
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 40%;
+            height: 100vh;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 140px 20px 100px 20px;
+            transition: $anim_05;
+            background-color: $orange1E;
+            overflow: auto;
+        }
+
+        @include media('<tablet') {
+            width: 60%;
+        }
+
+        @include media('<phone') {
+            width: 100%;
+        }
+
+        .active & {
+            right: 0;
+        }
+    }
+
+    .menu-wrap {
+        z-index: 1;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include media('<laptop') {
+            gap: 20px;
+        }
+
+        @include media('<widescreen') {
+            flex-direction: column;
+        }
+    }
+
+    .link {
+        color: $white;
+        font: $regular 16px $Montserrat;
+        letter-spacing: 0.32px;
+        transition: $anim_03;
+
+        @include media('<widescreen') {
+            font-size: 14px;
+        }
+
+        &:hover {
+            color: $orange;
+        }
+    }
+
+    .btn {
+        @include media('<widescreen') {
+            display: none;
+        }
+    }
+}
+
+/* ---------------burger */
+
+.burger {
+    display: none;
+    position: relative;
+    width: 24px;
+    height: 15px;
+    z-index: 1;
+    border: none;
+    outline: none;
+    background: none;
+
+    @include media('<widescreen') {
+        display: block;
+    }
+
+    span {
+        position: absolute;
+        top: 6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $white;
+        border-radius: 10px;
+        transition: all 0.7s ease 0s;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $white;
+        border-radius: 10px;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}
+
+.burger_active {
+    span {
+        opacity: 0;
+    }
+
+    &::before,
+    &::after {
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+    }
+
+    &::before {
+        animation-name: burger1;
+    }
+
+    &::after {
+        animation-name: burger2;
+    }
+
+    @keyframes burger1 {
+        0% {
+            top: 0px;
+        }
+
+        40% {
+            transform: rotate(0deg);
+            top: 6px;
+        }
+
+        100% {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+    }
+
+    @keyframes burger2 {
+        0% {
+            bottom: 0;
+        }
+
+        40% {
+            transform: rotate(0deg);
+            bottom: 7px;
+            width: 100%;
+        }
+
+        100% {
+            transform: rotate(-45deg);
+            bottom: 7px;
+            width: 100%;
+        }
+    }
+}
+
+.burger_finish {
+    &::before,
+    &::after {
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+    }
+
+    &::before {
+        animation-name: burger3;
+    }
+
+    &::after {
+        animation-name: burger4;
+    }
+
+    @keyframes burger3 {
+        0% {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+
+        40% {
+            transform: rotate(0deg);
+            top: 6px;
+        }
+
+        100% {
+            top: 0;
+        }
+    }
+
+    @keyframes burger4 {
+        0% {
+            transform: rotate(-45deg);
+            bottom: 6px;
+            width: 100%;
+        }
+
+        40% {
+            transform: rotate(0deg);
+            bottom: 6px;
+            width: 100%;
+        }
+
+        100% {
+            bottom: 0;
+        }
+    }
+}
