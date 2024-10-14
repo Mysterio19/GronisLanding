@@ -6,6 +6,10 @@
     padding: 26px 0;
     z-index: 10;
 
+    @include media('<widescreen') {
+        padding: 24px 0;
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -31,6 +35,11 @@
 
             @include media('<laptop') {
                 max-width: 100px;
+                height: 36px;
+            }
+
+            @include media('<widescreen') {
+                max-width: 120px;
             }
         }
     }
@@ -38,7 +47,6 @@
     .menu-block {
         display: flex;
         align-items: center;
-        gap: 148px;
 
         @include media('<widescreen') {
             position: absolute;
@@ -49,14 +57,14 @@
             min-height: 100vh;
             flex-direction: column;
             justify-content: space-between;
-            padding: 140px 20px 100px 20px;
+            padding: 100px 0 40px 0;
             transition: $anim_05;
             background-color: $orange1E;
             overflow: auto;
         }
 
         @include media('<tablet') {
-            width: 60%;
+            width: 70%;
         }
 
         @include media('<phone') {
@@ -86,6 +94,8 @@
 
         @include media('<widescreen') {
             flex-direction: column;
+            gap: 40px;
+            padding: 40px 12px;
         }
     }
 
@@ -95,12 +105,10 @@
         letter-spacing: 0.32px;
         transition: $anim_03;
 
-        @include media('<widescreen') {
-            font-size: 14px;
-        }
-
-        &:hover {
-            color: $orange;
+        @include media('>=widescreen') {
+            &:hover {
+                color: $orange;
+            }
         }
     }
 
@@ -109,155 +117,134 @@
             display: none;
         }
     }
+
+    .mob {
+        display: none;
+
+        @include media('<widescreen') {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .soc-box {
+        width: 100%;
+        gap: 16px;
+        padding: 24px 12px;
+        border-top: 1px solid rgba($white, 0.2);
+        border-bottom: 1px solid rgba($white, 0.2);
+        text-align: center;
+    }
+
+    .phone {
+        color: $white;
+        font: $semi-bold 18px $Montserrat;
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .text-box {
+        width: 100%;
+        gap: 8px;
+        padding: 24px 12px 0 12px;
+    }
+
+    .text {
+        margin: 0;
+        color: $white;
+        font: $regular 16px/1.5 $Montserrat;
+    }
 }
 
 /* ---------------burger */
 
 .burger {
-    display: none;
     position: relative;
-    width: 24px;
-    height: 15px;
+    max-height: 40px;
+    width: 38px;
+    display: flex;
+    flex-wrap: wrap;
     z-index: 1;
     border: none;
     outline: none;
     background: none;
+    display: none;
 
     @include media('<widescreen') {
         display: block;
     }
 
-    span {
+    svg {
         position: absolute;
-        top: 6px;
         left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: $white;
-        border-radius: 10px;
-        transition: all 0.7s ease 0s;
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        height: 2px;
-        width: 100%;
-        background-color: $white;
-        border-radius: 10px;
-    }
-
-    &::before {
         top: 0;
+        height: 40px;
+        width: 40px;
+        transform: scale(1.5);
     }
 
-    &::after {
-        bottom: 0;
-    }
-}
-
-.burger_active {
-    span {
-        opacity: 0;
+    .plate {
+        height: 40px;
+        width: 40px;
+        transform-origin: 50%;
+        transition: transform 400ms 100ms;
     }
 
-    &::before,
-    &::after {
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
-    }
+    .x {
+        transform: scale(0);
+        transition: transform 400ms;
 
-    &::before {
-        animation-name: burger1;
-    }
-
-    &::after {
-        animation-name: burger2;
-    }
-
-    @keyframes burger1 {
-        0% {
-            top: 0px;
-        }
-
-        40% {
-            transform: rotate(0deg);
-            top: 6px;
-        }
-
-        100% {
-            transform: rotate(45deg);
-            top: 6px;
+        .line {
+            stroke-width: 5.5px;
         }
     }
 
-    @keyframes burger2 {
-        0% {
-            bottom: 0;
-        }
-
-        40% {
-            transform: rotate(0deg);
-            bottom: 7px;
-            width: 100%;
-        }
-
-        100% {
-            transform: rotate(-45deg);
-            bottom: 7px;
-            width: 100%;
-        }
-    }
-}
-
-.burger_finish {
-    &::before,
-    &::after {
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
+    .line {
+        fill: none;
+        stroke: $white;
+        stroke-width: 4px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transform-origin: 50%;
+        transition:
+            stroke-dasharray 500ms 200ms,
+            stroke-dashoffset 500ms 200ms,
+            transform 500ms 200ms;
     }
 
-    &::before {
-        animation-name: burger3;
-    }
-
-    &::after {
-        animation-name: burger4;
-    }
-
-    @keyframes burger3 {
-        0% {
-            transform: rotate(45deg);
-            top: 6px;
+    .active & {
+        .line {
+            transition: transform 400ms;
         }
-
-        40% {
-            transform: rotate(0deg);
-            top: 6px;
+        .line1 {
+            transform: translateX(18px) translateY(-3px) rotate(-45deg)
+                scale(0.7);
         }
-
-        100% {
-            top: 0;
+        .line2 {
+            transform: translateX(-18px) translateY(-3px) rotate(45deg)
+                scale(0.7);
         }
-    }
-
-    @keyframes burger4 {
-        0% {
-            transform: rotate(-45deg);
-            bottom: 6px;
-            width: 100%;
+        .line3 {
+            transform: translateY(0px) rotate(45deg) scale(0.7);
         }
-
-        40% {
-            transform: rotate(0deg);
-            bottom: 6px;
-            width: 100%;
+        .line4 {
+            transform: translateY(0px) rotate(-45deg) scale(0.7);
         }
-
-        100% {
-            bottom: 0;
+        .line5 {
+            transform: translateX(18px) translateY(3px) rotate(45deg) scale(0.7);
+        }
+        .line6 {
+            transform: translateX(-18px) translateY(3px) rotate(-45deg)
+                scale(0.7);
+        }
+        .x {
+            transition: transform 400ms 100ms;
+            transform: scale(1.5);
         }
     }
 }
