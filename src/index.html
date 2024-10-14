@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="/styles/main.scss">
 </head>
 
@@ -88,9 +89,82 @@
             </div>
         </div>
       </section>
+      <section class="products-section" id="products">
+        <div class="container">
+            <div class="content">
+                <div class="title-wrap">
+                    <h2 class="title">Produkte unserer Firma</h2>
+                    <a class="btn sec" href="#">Galerie anschauen</a>
+                </div>
+                <div class="swiper productsSlider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="card">
+                            <img class="img" src="./images/products1.webp" alt="Product Img">
+                            <div class="text-box">
+                                <p class="name">Modulare Fliesen</p>
+                                <a class="btn-link" href="#">Mehr lesen</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card">
+                            <img class="img" src="./images/products2.webp" alt="Product Img">
+                            <div class="text-box">
+                                <p class="name">Brammen</p>
+                                <a class="btn-link" href="#">Mehr lesen</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="card">
+                            <img class="img" src="./images/products3.webp" alt="Product Img">
+                            <div class="text-box">
+                                <p class="name">Denkmäler</p>
+                                <a class="btn-link" href="#">Mehr lesen</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slider-nav">
+                    <div class="products-pagination"></div>
+                    <div class="arrows">
+                      <div class="arrow products-prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <g clip-path="url(#clip0_620_302)">
+                              <path d="M9.64762 4.95938L0.27262 14.3344C0.0980093 14.51 1.34853e-06 14.7476 1.31605e-06 14.9953C1.28358e-06 15.243 0.0980091 15.4806 0.272619 15.6563L9.64762 25.0313L10.9695 23.7094L3.19762 15.9375L30.0007 15.9375L30.0007 14.0625L3.19762 14.0625L10.9695 6.29062L9.64762 4.95938Z"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_620_302">
+                                <rect width="30" height="30" fill="white" transform="translate(0 30) rotate(-90)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                      </div>
+                      <div class="arrow products-next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <g clip-path="url(#clip0_620_304)">
+                              <path d="M20.3524 25.0406L29.7274 15.6656C29.902 15.49 30 15.2524 30 15.0047C30 14.757 29.902 14.5194 29.7274 14.3437L20.3524 4.96875L19.0305 6.29062L26.8024 14.0625L-0.000746677 14.0625L-0.000746863 15.9375L26.8024 15.9375L19.0305 23.7094L20.3524 25.0406Z"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_620_304">
+                                <rect width="30" height="30" fill="white" transform="translate(30) rotate(90)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn sec mob" href="#">Galerie anschauen</a>
+                </div>
+            </div>
+        </div>
+      </section>
     </main>
     {{> footer }}
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/js/main.ts"></script>
 </body>
 

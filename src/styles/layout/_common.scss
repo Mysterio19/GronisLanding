@@ -1,3 +1,5 @@
+/* -----------------------main-section--------------------- */
+
 .main-section {
     position: relative;
     padding: 100px 0 200px 0;
@@ -131,7 +133,7 @@
 /* --------------------advantages-section------------------- */
 
 .advantages-section {
-    padding: 180px 0 60px 0;
+    padding: 180px 0 90px 0;
 
     @include media('<desktop') {
         padding: 90px 0 40px 0;
@@ -290,6 +292,210 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+}
+
+/* ---------------------products-section-------------------- */
+
+.products-section {
+    padding: 90px 0;
+
+    @include media('<desktop') {
+        padding: 40px 0;
+    }
+
+    .title-wrap {
+        border-bottom: 1px solid $gray;
+        margin-bottom: 80px;
+
+        @include media('<laptop') {
+            margin-bottom: 40px;
+        }
+    }
+
+    .title {
+        @include media('<widescreen') {
+            font-size: 38px;
+        }
+
+        @include media('<phone') {
+            text-align: center;
+            font-size: 24px;
+        }
+    }
+
+    .btn {
+        min-width: max-content;
+
+        @include media('<tablet') {
+            display: none;
+        }
+
+        @include media('<phone') {
+            width: 100%;
+        }
+
+        &.mob {
+            display: none;
+
+            @include media('<tablet') {
+                position: relative;
+                display: inline-block;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+    }
+
+    .btn-link {
+        min-width: max-content;
+
+        @include media('<phone') {
+            position: absolute;
+            inset: 0;
+            color: transparent;
+            text-shadow: none;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .swiper {
+        width: 80%;
+        margin: 0;
+        overflow: visible;
+    }
+
+    .card {
+        position: relative;
+        min-height: 670px;
+        display: flex;
+        align-items: flex-end;
+
+        @include media('<laptop') {
+            min-height: 470px;
+        }
+
+        @include media('<desktop') {
+            min-height: 400px;
+        }
+
+        @include media('<phone') {
+            min-height: 270px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            z-index: 1;
+        }
+    }
+
+    .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .text-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 36px;
+        z-index: 2;
+
+        @include media('<tablet') {
+            padding: 12px;
+        }
+    }
+
+    .name {
+        margin: 0;
+        color: $white;
+        font: $regular 18px $Montserrat;
+        text-transform: uppercase;
+
+        @include media('<tablet') {
+            font-size: 12px;
+        }
+    }
+
+    .slider-nav {
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        margin: 0 auto;
+        padding-top: 40px;
+
+        @include media('<tablet') {
+            max-width: 100%;
+            padding-top: 25px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .products-pagination {
+        position: relative;
+        max-width: 666px;
+        height: 6px;
+        border-radius: 300px;
+        background-color: $gray;
+
+        @include media('<tablet') {
+            height: 4px;
+        }
+    }
+
+    .swiper-pagination-progressbar-fill {
+        background-color: $accent;
+        border-radius: 300px;
+    }
+
+    .arrows {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        @include media('<tablet') {
+            display: none;
+        }
+    }
+
+    .arrow {
+        cursor: pointer;
+        transition: $anim_03;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &.swiper-button-disabled {
+            cursor: no-drop;
+
+            svg {
+                fill: $gray;
+            }
+        }
+
+        svg {
+            fill: $black;
+            transition: $anim_03;
         }
     }
 }
