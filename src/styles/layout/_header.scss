@@ -110,6 +110,14 @@
                 color: $orange;
             }
         }
+
+        @include media('<widescreen_x') {
+            font-size: 14px;
+        }
+
+        @include media('<widescreen') {
+            font-size: 16px;
+        }
     }
 
     .btn {
