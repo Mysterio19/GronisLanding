@@ -131,3 +131,13 @@ destroySlidersOnResize(".productsSlider", 99999, {
     type: "progressbar",
   },
 });
+
+// Form file
+const fileInput = document.getElementById('file-input');
+const fileName = document.querySelector('.file-name');
+
+fileInput.addEventListener('change', function() {
+  if (fileInput.files.length > 0) {
+    fileName.textContent = fileInput.files[0].name;
+  }
+});

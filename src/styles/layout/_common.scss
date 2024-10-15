@@ -896,3 +896,157 @@
         }
     }
 }
+
+/* ----------------------contact-section-------------------- */
+
+.contact-section {
+    padding: 100px 0;
+    background-color: $black11;
+
+    @include media('<desktop') {
+        padding: 75px 0;
+    }
+
+    .contact-title {
+        margin-bottom: 80px;
+        text-align: center;
+        color: $accent;
+        font: $regular 80px/1.1 $Montserrat;
+        text-transform: uppercase;
+
+        @include media('<widescreen') {
+            font-size: 66px;
+        }
+
+        @include media('<desktop') {
+            font-size: 56px;
+        }
+
+        @include media('<tablet') {
+            margin-bottom: 40px;
+            font-size: 46px;
+        }
+
+        @include media('<phone') {
+            font-size: 24px;
+        }
+    }
+
+    form {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 40px;
+        margin: 0 auto;
+
+        @include media('<phone') {
+            row-gap: 28px;
+        }
+
+        .input {
+            width: 49%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba($white, 0.6);
+            padding: 12px 0;
+            color: $accent;
+            font: $regular 18px/1.2 $Montserrat;
+            transition: $anim_03;
+
+            @include media('<tablet') {
+                width: 100%;
+            }
+
+            @include media('<phone') {
+                font-size: 16px;
+            }
+
+            &::placeholder {
+                text-transform: uppercase;
+
+                @include media('<phone') {
+                    text-transform: none;
+                }
+            }
+
+            &:focus {
+                border-color: $white;
+            }
+        }
+
+        .textarea {
+            width: 100%;
+            border: 1px solid rgba($white, 0.6);
+            padding: 16px;
+            min-height: 116px;
+
+            @include media('<phone') {
+                line-height: 1.5;
+                padding: 8px;
+            }
+
+            &::placeholder {
+                text-transform: none;
+            }
+        }
+
+        .file-wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba($white, 0.6);
+
+            @include media('<phone') {
+                padding-bottom: 8px;
+            }
+
+            .btn {
+                margin: 0;
+            }
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-name {
+            color: $white;
+            font: $regular 18px/1.4 $Montserrat;
+            letter-spacing: 0.36px;
+
+            @include media('<phone') {
+                font-size: 16px;
+            }
+        }
+
+        .text {
+            margin: 0;
+            color: $white;
+            font: $regular 18px/1.4 $Montserrat;
+            letter-spacing: 0.36px;
+
+            @include media('<tablet') {
+                font-size: 16px;
+            }
+
+            @include media('<phone') {
+                font-size: 12px;
+            }
+        }
+
+        .btn {
+            margin-left: auto;
+            border-radius: 100px;
+            cursor: pointer;
+
+            @include media('<phone') {
+                width: 100%;
+            }
+        }
+    }
+}

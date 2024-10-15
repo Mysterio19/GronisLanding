@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8" />
@@ -26,7 +26,7 @@
           <div class="content">
             <h1 class="main-title">Steinverarbeitungsanlage</h1>
             <p class="main-text">Verarbeitung und Herstellung von <br> Natursteinprodukten in Deutschland!</p>
-            <a class="btn main" href="#">bestellen</a>
+            <a class="btn main" href="#contact">bestellen</a>
           </div>
         </div>
         <a class="arrow-down" href="#advantages">
@@ -207,7 +207,7 @@
                 <li class="item">Fassadendekor und Elemente für Innen- und Außenbereich</li>
                 <li class="item">Gedenkartikel aus Granit (Vasen, Bänke, Kreuze)</li>
               </ul>
-              <a class="btn main anim opacityTo" href="#">bestellen</a>
+              <a class="btn main anim opacityTo" href="#contact">bestellen</a>
             </div>
           </div>
         </div>
@@ -256,6 +256,25 @@
       <div class="block-full-img full2">
         <img src="./images/img-block2.webp" alt="Img">
       </div>
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="content">
+            <h2 class="contact-title">Kontakt aufnehmen</h2>
+            <form>
+              <input class="input" type="text" placeholder="Vollständiger Name*">
+              <input class="input" type="text" placeholder="E-Mail oder Telefon*">
+              <textarea class="input textarea" placeholder="Beschreiben Sie das gewünschte Produkt, die Menge und andere Details..."></textarea>
+              <div class="file-wrap">
+                <label class="btn sec" for="file-input">Datei auswählenN</label>
+                <input class="file-input" type="file" id="file-input">
+                <span class="file-name">Keine Datei ausgewählt</span>
+              </div>
+              <p class="text">Optional können Sie eine Datei Ihres Projekts anhängen. Größe bis zu 20 MB, Formate: png, jpg, doc, xls, txt, pdf.</p>
+              <input class="btn main" type="submit" value="Anfrage senden">
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
     {{> footer }}
   </div>
