@@ -1,0 +1,55 @@
+$anim_speed: all 0.7s ease 0s;
+$muve: 50px;
+
+.topToDown {
+    transform: translateY(-$muve);
+    opacity: 0;
+    transition: $anim_speed;
+
+    &.show {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.downToTop {
+    transform: translateY($muve);
+    opacity: 0;
+    transition: $anim_speed;
+
+    &.show {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.leftToRight {
+    transform: translate(-$muve);
+    opacity: 0;
+    transition: $anim_speed;
+
+    &.show {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.rightToLeft {
+    transform: translate($muve);
+    opacity: 0;
+    transition: $anim_speed;
+
+    &.show {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.opacityTo {
+    opacity: 0;
+    transition: $anim_speed;
+
+    &.show {
+        opacity: 1;
+    }
+}

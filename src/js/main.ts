@@ -21,6 +21,19 @@ for (let i = 0; i < linkClose.length; ++i) {
   });
 }
 
+// Header scroll
+
+const header: HTMLElement | null = document.getElementById('header');
+
+if (header) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      header.classList.add('scroll');
+    } else {
+      header.classList.remove('scroll');
+    }
+  });
+}
 
 // Accordion 
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,6 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Scroll anim
+
+document.addEventListener('DOMContentLoaded', () => {
+  initAnimationOnScroll();
+});
+  
+export const initAnimationOnScroll = () => {
+const onEntry: IntersectionObserverCallback = (entry) => {
+  entry.forEach((change) => {
+    if (change.isIntersecting) {
+      change.target.classList.add('show');
+    }
+  });
+};
+
+const options = { threshold: [0.5] };
+const observer = new IntersectionObserver(onEntry, options);
+const elements = document.querySelectorAll('.anim');
+for (const elm of elements) {
+  observer.observe(elm);
+}};
 
 // Swipers
 
