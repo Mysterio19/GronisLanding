@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gronis</title>
+  <link rel="shortcut icon" href="./images/icons/favicon.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/styles/main.scss">
+</head>
+
+<body>
+  <div id="wrapper">
+    {{> header-white }}
+    <main>
+      <section class="page-section">
+        <div class="container">
+          <div class="content">
+            <div class="page-title-wrap anim topToDown">
+              <a class="arrow" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                  <path d="M11.7532 8L5.19083 15.0061C5.0686 15.1373 5 15.3149 5 15.5C5 15.6851 5.0686 15.8627 5.19083 15.9939L11.7532 23L12.6785 22.0121L7.23828 16.2041L26 16.2041V14.8029L7.23828 14.8029L12.6785 8.99486L11.7532 8Z" fill="#1C1C1C"/>
+                </svg>
+              </a>
+              <h1 class="page-title">Galerie</h1>
+              <div class="arrow"></div>
+            </div>
+            <div class="grid-block">
+              <div class="item anim downToTop">
+                <a class="link" href="#"></a>
+                <div class="img-wrap">
+                  <img src="./images/products1.webp" alt="Img">
+                </div>
+                <h2 class="item-title">Modulare Fliesen</h2>
+                <p class="btn-link orange">Mehr lesen</p>
+              </div>
+              <div class="item anim downToTop">
+                <a class="link" href="#"></a>
+                <div class="img-wrap">
+                  <img src="./images/products2.webp" alt="Img">
+                </div>
+                <h2 class="item-title">Brammen</h2>
+                <p class="btn-link orange">Mehr lesen</p>
+              </div>
+              <div class="item anim downToTop">
+                <a class="link" href="#"></a>
+                <div class="img-wrap">
+                  <img src="./images/products3.webp" alt="Img">
+                </div>
+                <h2 class="item-title">Denkmäler</h2>
+                <p class="btn-link orange">Mehr lesen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    {{> footer }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="/js/main.ts"></script>
+</body>
+
+</html>

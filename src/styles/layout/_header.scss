@@ -32,6 +32,7 @@
 
         svg {
             display: block;
+            fill: $white;
 
             @include media('<laptop') {
                 max-width: 100px;
@@ -166,6 +167,47 @@
         margin: 0;
         color: $white;
         font: $regular 16px/1.5 $Montserrat;
+    }
+
+    &.white {
+        box-shadow: 0px 2px 8px 0px rgba(139, 139, 139, 0.25);
+        background-color: $white;
+
+        &::before {
+            display: none;
+        }
+
+        .logo {
+            svg {
+                fill: $black;
+                transition: $anim_03;
+
+                .active & {
+                    fill: $white;
+                }
+            }
+        }
+
+        .link {
+            @include media('>=widescreen') {
+                color: $black;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+
+        .burger {
+            .line {
+                stroke: $black;
+                transition: $anim_03;
+
+                .active & {
+                    stroke: $white;
+                }
+            }
+        }
     }
 }
 
