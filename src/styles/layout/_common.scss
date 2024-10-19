@@ -1111,36 +1111,53 @@
         row-gap: 32px;
         column-gap: 20px;
 
-        @include media('<tablet') {
+        @include media('<desktop') {
             grid-template-columns: 1fr 1fr;
         }
 
-        @include media('<phone') {
+        @include media('<tablet') {
             grid-template-columns: 1fr;
         }
     }
 
     .item {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
 
-        @include media('<widescreen') {
-            gap: 10px;
+        &.img-hover {
+            &:hover {
+                img {
+                    transform: scale(1.3);
+                }
+
+                .orange {
+                    text-shadow: 0 0 2px $accent;
+
+                    &::before {
+                        box-shadow: 0 0 2px $accent;
+                    }
+                }
+            }
         }
 
-        &:hover {
-            img {
-                transform: scale(1.3);
+        &.info-hover {
+            &:hover {
+                .text {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .accordion-item {
+        @include media('<desktop') {
+            .accordion-content {
+                max-height: 0;
             }
 
-            .orange {
-                text-shadow: 0 0 2px $accent;
-
-                &::before {
-                    box-shadow: 0 0 2px $accent;
+            &.open {
+                .accordion-content {
+                    max-height: 100%;
+                    padding: 8px 0;
                 }
             }
         }
@@ -1157,6 +1174,7 @@
         width: 100%;
         min-height: 400px;
         overflow: hidden;
+        margin-bottom: 16px;
 
         @include media('<widescreen') {
             min-height: 300px;
@@ -1193,6 +1211,144 @@
 
         @include media('<tablet') {
             font-size: 14px;
+        }
+    }
+
+    .text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        max-height: 400px;
+        padding: 35px;
+        margin: 0;
+        background-color: rgba($white, 0.4);
+        backdrop-filter: blur(10px);
+        overflow: auto;
+        overscroll-behavior: none;
+        color: $black;
+        font: $regular 18px/1.4 $Montserrat;
+        letter-spacing: 0.36px;
+        opacity: 0;
+        transition: $anim_03;
+
+        @include media('<widescreen') {
+            max-height: 300px;
+        }
+
+        @include media('<desktop') {
+            max-height: 0;
+            position: relative;
+            opacity: 1;
+            padding: 0;
+            background: none;
+            backdrop-filter: blur(0);
+        }
+
+        @include media('<tablet') {
+            font-size: 16px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+
+            @include media('<desktop') {
+                width: 0;
+            }
+        }
+    }
+
+    .title-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .link-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 9px 22px;
+    }
+
+    .des {
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+
+    .mob {
+        display: none;
+
+        @include media('<desktop') {
+            display: flex;
+        }
+    }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding-top: 80px;
+    }
+
+    .pag-arrow {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+
+        &.right {
+            transform: rotate(180deg);
+        }
+
+        svg {
+            display: block;
+            fill: $accent;
+        }
+
+        &[disabled] {
+            svg {
+                display: block;
+                fill: $gray;
+            }
+        }
+    }
+
+    .pag-numbers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 24px;
+        row-gap: 5px;
+    }
+
+    .page-number {
+        min-width: 18px;
+        background: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-bottom: 1px solid transparent;
+        color: $black;
+        font: $regular 18px/1.4 $Montserrat;
+        letter-spacing: 0.36px;
+        transition: $anim_03;
+
+        &.active {
+            color: $accent;
+            border-color: $accent;
         }
     }
 }

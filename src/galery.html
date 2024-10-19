@@ -21,7 +21,7 @@
         <div class="container">
           <div class="content">
             <div class="page-title-wrap anim topToDown">
-              <a class="arrow" href="#">
+              <a class="arrow" href="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                   <path d="M11.7532 8L5.19083 15.0061C5.0686 15.1373 5 15.3149 5 15.5C5 15.6851 5.0686 15.8627 5.19083 15.9939L11.7532 23L12.6785 22.0121L7.23828 16.2041L26 16.2041V14.8029L7.23828 14.8029L12.6785 8.99486L11.7532 8Z" fill="#1C1C1C"/>
                 </svg>
@@ -30,32 +30,51 @@
               <div class="arrow"></div>
             </div>
             <div class="grid-block">
-              <div class="item anim downToTop">
-                <a class="link" href="#"></a>
+              <div class="item img-hover anim downToTop" data-pag-type="pag">
+                <a class="link" href="galery-page.html"></a>
                 <div class="img-wrap">
                   <img src="./images/products1.webp" alt="Img">
                 </div>
-                <h2 class="item-title">Modulare Fliesen</h2>
-                <p class="btn-link orange">Mehr lesen</p>
+                <div class="link-wrap">
+                  <h2 class="item-title">Modulare Fliesen</h2>
+                  <p class="btn-link orange">Mehr lesen</p>
+                </div>
               </div>
-              <div class="item anim downToTop">
+              <div class="item img-hover anim downToTop" data-pag-type="pag">
                 <a class="link" href="#"></a>
                 <div class="img-wrap">
                   <img src="./images/products2.webp" alt="Img">
                 </div>
-                <h2 class="item-title">Brammen</h2>
-                <p class="btn-link orange">Mehr lesen</p>
+                <div class="link-wrap">
+                  <h2 class="item-title">Brammen</h2>
+                  <p class="btn-link orange">Mehr lesen</p>
+                </div>
               </div>
-              <div class="item anim downToTop">
+              <div class="item img-hover anim downToTop" data-pag-type="pag">
                 <a class="link" href="#"></a>
                 <div class="img-wrap">
                   <img src="./images/products3.webp" alt="Img">
                 </div>
-                <h2 class="item-title">Denkmäler</h2>
-                <p class="btn-link orange">Mehr lesen</p>
+                <div class="link-wrap">
+                  <h2 class="item-title">Denkmäler</h2>
+                  <p class="btn-link orange">Mehr lesen</p>
+                </div>
               </div>
             </div>
           </div>
+          <div class="pagination">
+            <button class="pag-arrow left" id="prevButton">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4371 16L21.0371 9.39998L19.1518 7.51465L10.6664 16L19.1518 24.4853L21.0371 22.6L14.4371 16Z"/>
+              </svg>
+            </button>
+            <div class="pag-numbers" id="paginationNumbers" ></div>
+            <button class="pag-arrow right" id="nextButton">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4371 16L21.0371 9.39998L19.1518 7.51465L10.6664 16L19.1518 24.4853L21.0371 22.6L14.4371 16Z"/>
+              </svg>
+            </button>
+          </div> 
         </div>
       </section>
     </main>

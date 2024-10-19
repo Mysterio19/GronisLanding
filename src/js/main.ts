@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 // Header 
 
 const burger = document.querySelector('.burger');
@@ -144,4 +145,94 @@ if (fileInput) {
       fileName.textContent = fileInput.files[0].name;
     }
   });
+}
+
+// For pagination
+
+const itemsPerPage = 9;
+const paginationItems: HTMLElement[] = Array.from(document.querySelectorAll('[data-pag-type="pag"]'));
+
+if (paginationItems.length === 0) {
+  console.log('No pagination items found. Exiting script.');
+} else {
+  let currentPage = 1;
+  const totalPages = Math.ceil(paginationItems.length / itemsPerPage);
+
+  function showPage(page: number): void {
+    paginationItems.forEach((item) => (item.style.display = 'none'));
+
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    paginationItems.slice(start, end).forEach((item) => (item.style.display = 'block'));
+
+    if (totalPages > 1) {
+      updatePaginationNumbers();
+    }
+  }
+
+  function updatePaginationButtons(): void {
+    const prevButton = document.querySelector('#prevButton') as HTMLButtonElement;
+    const nextButton = document.querySelector('#nextButton') as HTMLButtonElement;
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+  }
+
+  function updatePaginationNumbers(): void {
+    const paginationNumbers = document.querySelector('#paginationNumbers') as HTMLElement;
+    paginationNumbers.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.textContent = i.toString();
+      pageButton.className = 'page-number';
+
+      if (i === currentPage) {
+        pageButton.classList.add('active');
+      }
+
+      pageButton.addEventListener('click', () => goToPage(i));
+
+      paginationNumbers.appendChild(pageButton);
+    }
+  }
+
+  function goToNextPage(): void {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+      updatePaginationButtons();
+    }
+  }
+
+  function goToPrevPage(): void {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+      updatePaginationButtons();
+    }
+  }
+
+  function goToPage(page: number): void {
+    currentPage = page;
+    showPage(currentPage);
+    updatePaginationButtons();
+  }
+
+  if (paginationItems.length > itemsPerPage) {
+    showPage(currentPage);
+    updatePaginationButtons();
+    // @ts-ignore
+    document.querySelector('.pagination')!.style.display = 'flex';
+
+    const prevButton = document.querySelector('#prevButton') as HTMLButtonElement;
+    const nextButton = document.querySelector('#nextButton') as HTMLButtonElement;
+
+    prevButton.addEventListener('click', goToPrevPage);
+    nextButton.addEventListener('click', goToNextPage);
+  } else {
+    // @ts-ignore
+    document.querySelector('.pagination')!.style.display = 'none';
+  }
 }
