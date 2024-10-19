@@ -1,1 +1,116 @@
-#footer {}
+.footer {
+    padding: 80px 0;
+    background-color: $black11;
+    border-top: 1px solid rgba($white, 0.2);
+
+    @include media('<desktop') {
+        padding: 40px 0;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 60px;
+
+        @include media('<tablet') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .logo {
+        @include media('<tablet') {
+            max-width: 177px;
+        }
+    }
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 40px;
+
+        @include media('<tablet') {
+            align-items: center;
+            gap: 60px;
+        }
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 28px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include media('<tablet') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .link {
+        color: $white;
+        font: $regular 16px $Montserrat;
+        letter-spacing: 0.32px;
+        transition: $anim_03;
+
+        @include media('>=widescreen') {
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+
+    .phone {
+        color: $white;
+        font: $semi-bold 18px $Montserrat;
+
+        @include media('<tablet') {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 24px;
+
+        @include media('<tablet') {
+            justify-content: center;
+        }
+    }
+
+    .soc-link {
+        transition: $anim_03;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .bot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .text {
+        margin: 0;
+        color: $white;
+        font: $regular 18px $Montserrat;
+
+        @include media('<tablet') {
+            font-size: 16px;
+        }
+    }
+}
