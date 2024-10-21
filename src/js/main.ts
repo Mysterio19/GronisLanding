@@ -236,3 +236,118 @@ if (paginationItems.length === 0) {
     document.querySelector('.pagination')!.style.display = 'none';
   }
 }
+
+// For sticky policy sitbar
+
+window.addEventListener('scroll', () => {
+  const navBox = document.querySelector('.nav-box') as HTMLElement | null; 
+  const policyBlock = document.querySelector('.policy-content') as HTMLElement;
+
+  if (navBox) {
+    const stickyClass = 'is-sticky';
+    const policyBlockOffset = policyBlock.getBoundingClientRect().top + window.scrollY;
+    const policyBlockHeight = policyBlock.offsetHeight;
+    const stickyOffset = policyBlockOffset - 180; 
+    const unstickOffset = policyBlockOffset + policyBlockHeight; 
+
+    if (window.pageYOffset > stickyOffset && window.pageYOffset < unstickOffset) {
+      navBox.classList.add(stickyClass);
+    } else {
+      navBox.classList.remove(stickyClass);
+    }
+  }
+});
+
+// For generate nav menu policy
+
+function addNavItem() {
+  const navBox = document.querySelector('.nav-box') as HTMLUListElement;
+
+  if (!navBox) return; // Check if nav-box exists
+
+  const policyBoxes = document.querySelectorAll('.policy-box');
+  navBox.innerHTML = '';
+
+  policyBoxes.forEach((box, index) => {
+      const titleElement = box.querySelector('.policy-title') as HTMLElement;
+      const titleText = titleElement ? titleElement.textContent : 'Untitled';
+
+      let id = box.id;
+      if (!id) {
+          id = `policy-${index + 1}`;
+          box.id = id;
+      }
+
+      const navItem = document.createElement('li');
+      navItem.className = 'nav-item';
+
+      const navLink = document.createElement('a');
+      navLink.className = 'nav-link';
+      navLink.href = `#${id}`;
+      navLink.textContent = titleText;
+
+      navItem.appendChild(navLink);
+      navBox.appendChild(navItem);
+  });
+
+  function handleScroll() {
+      const scrollPosition = window.scrollY + 190;
+
+      policyBoxes.forEach((box) => {
+          const boxTop = box.getBoundingClientRect().top + window.scrollY;
+          // @ts-ignore
+          if (scrollPosition >= boxTop && scrollPosition < boxTop + box.offsetHeight) {
+              box.classList.add('active');
+
+              const navLink = navBox.querySelector(`.nav-link[href="#${box.id}"]`) as HTMLElement;
+              const navItem = navLink?.parentElement as HTMLElement;
+
+              if (navItem) {
+                  navItem.classList.add('active');
+              }
+          } else {
+              box.classList.remove('active');
+              const navLink = navBox.querySelector(`.nav-link[href="#${box.id}"]`) as HTMLElement;
+              const navItem = navLink?.parentElement as HTMLElement;
+              
+              if (navItem) {
+                  navItem.classList.remove('active');
+              }
+          }
+      });
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  navBox.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+
+    if (target.classList.contains('nav-link')) {
+        event.preventDefault();
+        const targetId = target.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId!);
+
+        if (targetElement) {
+            const offset = window.innerWidth <= 1023 ? 100 : 180; 
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+            });
+        }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addNavItem();
+});
+
+
+
+
+
+
+
+

@@ -1064,6 +1064,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 20px;
         padding-bottom: 40px;
         border-bottom: 1px solid $gray;
         margin-bottom: 80px;
@@ -1349,6 +1350,234 @@
         &.active {
             color: $accent;
             border-color: $accent;
+        }
+    }
+
+    .policy-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+
+        @include media('<desktop') {
+            flex-direction: column;
+        }
+    }
+
+    .nav-wrap {
+        width: 100%;
+        max-width: 450px;
+        min-width: 450px;
+
+        @include media('<widescreen') {
+            max-width: 350px;
+            min-width: 350px;
+        }
+
+        @include media('<desktop') {
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    .nav-box {
+        position: relative;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 0 0 7px 16px;
+        margin: 0;
+        list-style: none;
+        transition: $anim_03;
+
+        @include media('<widescreen') {
+            max-width: 350px;
+        }
+
+        @include media('<desktop') {
+            max-width: 100%;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $accent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background: rgb(4, 4, 31);
+            background: linear-gradient(
+                0deg,
+                rgba(4, 4, 31, 0) 0%,
+                rgba(184, 96, 28, 1) 100%
+            );
+        }
+
+        &.is-sticky {
+            position: fixed;
+            top: 180px;
+            width: 100%;
+
+            @include media('<desktop') {
+                position: relative;
+                top: 0;
+            }
+        }
+    }
+
+    .nav-item {
+        &.active {
+            .nav-link {
+                color: $accent;
+            }
+        }
+    }
+
+    .nav-link {
+        color: $black;
+        font: $semi-bold 16px/1.4 $Montserrat;
+        letter-spacing: 0.32px;
+        transition: $anim_03;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    .policy-content {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .policy-box {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &.active {
+            .policy-title {
+                color: $accent;
+            }
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $black;
+            font-family: $Montserrat;
+            font-weight: $medium;
+            line-height: normal;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 30px;
+
+            @include media('<tablet') {
+                font-size: 22px;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+
+            @include media('<tablet') {
+                font-size: 14px;
+            }
+        }
+
+        h4 {
+            font-size: 17px;
+
+            @include media('<tablet') {
+                font-size: 12px;
+            }
+        }
+
+        h5 {
+            font-size: 16px;
+
+            @include media('<tablet') {
+                font-size: 12px;
+            }
+        }
+
+        h6 {
+            font-size: 14px;
+
+            @include media('<tablet') {
+                font-size: 12px;
+            }
+        }
+
+        p,
+        li {
+            margin: 0;
+            color: $gray66;
+            font: $regular 18px/1.4 $Montserrat;
+            letter-spacing: 0.36px;
+
+            @include media('<phone') {
+                font-size: 16px;
+            }
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            transition: $anim_03;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        ul,
+        ol {
+            padding: 0 0 0 30px;
+            margin: 0;
+        }
+
+        ul {
+            li {
+                &::marker {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        ol {
+            li {
+                &::marker {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .policy-title {
+            margin: 0;
+            color: $black;
+            font: $regular 30px $Montserrat;
+            letter-spacing: 0.6px;
+
+            @include media('<tablet') {
+                font-size: 22px;
+            }
         }
     }
 }
