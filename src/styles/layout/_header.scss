@@ -33,6 +33,7 @@
         svg {
             display: block;
             fill: $white;
+            transition: $anim_03;
 
             @include media('<laptop') {
                 max-width: 100px;
@@ -170,11 +171,9 @@
     }
 
     &.white {
-        box-shadow: 0px 2px 8px 0px rgba(139, 139, 139, 0.25);
-        background-color: $white;
-
         &::before {
-            display: none;
+            box-shadow: 0px 2px 8px 0px rgba(139, 139, 139, 0.25);
+            background-color: rgba($white, 0.2);
         }
 
         .logo {

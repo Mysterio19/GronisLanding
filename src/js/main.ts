@@ -25,16 +25,46 @@ for (let i = 0; i < linkClose.length; ++i) {
 // Header scroll
 
 const header: HTMLElement | null = document.getElementById('header');
+const mainSection = document.querySelector('[data-section="main"]');
 
-if (header) {
+if (header && mainSection) {
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-      header.classList.add('scroll');
+    const mainRect = mainSection.getBoundingClientRect();
+    
+    if (window.scrollY > (mainRect.bottom + window.scrollY)) {
+      header.classList.add('white');
     } else {
-      header.classList.remove('scroll');
+      header.classList.remove('white');
     }
   });
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  if (header) {
+      const headerHeight = header.clientHeight;
+
+      links.forEach(link => {
+          link.addEventListener('click', (event) => {
+              event.preventDefault();
+              
+              const targetId = (link.getAttribute('href') || '').substring(1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                  
+                  window.scrollTo({
+                      top: targetPosition - headerHeight,
+                      behavior: 'smooth' // плавный скролл
+                  });
+              }
+          });
+      });
+  }
+});
+
 
 // Accordion 
 document.addEventListener("DOMContentLoaded", () => {
@@ -152,9 +182,7 @@ if (fileInput) {
 const itemsPerPage = 9;
 const paginationItems: HTMLElement[] = Array.from(document.querySelectorAll('[data-pag-type="pag"]'));
 
-if (paginationItems.length === 0) {
-  console.log('No pagination items found. Exiting script.');
-} else {
+if (paginationItems.length === 0) { /* empty */ } else {
   let currentPage = 1;
   const totalPages = Math.ceil(paginationItems.length / itemsPerPage);
 
