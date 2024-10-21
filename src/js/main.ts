@@ -22,7 +22,7 @@ for (let i = 0; i < linkClose.length; ++i) {
   });
 }
 
-// Header scroll
+// Added class for header when scroll after section 
 
 const header: HTMLElement | null = document.getElementById('header');
 const mainSection = document.querySelector('[data-section="main"]');
@@ -39,34 +39,31 @@ if (header && mainSection) {
   });
 }
 
+
+// Deleted header height when scroll to anchor
+
 window.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('a[href^="#"]');
+  const headerHeight = header ? header.offsetHeight : 0;
 
-  if (header) {
-      const headerHeight = header.clientHeight;
-
-      links.forEach(link => {
-          link.addEventListener('click', (event) => {
-              event.preventDefault();
-              
-              const targetId = (link.getAttribute('href') || '').substring(1);
-              const targetElement = document.getElementById(targetId);
-
-              if (targetElement) {
-                  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                  
-                  window.scrollTo({
-                      top: targetPosition - headerHeight,
-                      behavior: 'smooth' // плавный скролл
-                  });
-              }
-          });
-      });
+  function scrollToAnchor() {
+    const anchorId = window.location.hash;
+    if (anchorId) {
+      const targetElement = document.querySelector(anchorId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.getBoundingClientRect().top + window.scrollY - headerHeight,
+          behavior: 'smooth'
+        });
+      }
+    }
   }
+
+  window.addEventListener('hashchange', scrollToAnchor);
+  window.addEventListener('load', scrollToAnchor);
 });
 
-
 // Accordion 
+
 document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll('.accordion-item');
 
