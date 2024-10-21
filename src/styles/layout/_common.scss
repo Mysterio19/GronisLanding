@@ -1581,3 +1581,64 @@
         }
     }
 }
+
+/* ------------------------error-section--------------------- */
+
+.error-section {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 100px 0;
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .content {
+        max-width: 864px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .error-title {
+        margin-bottom: 26px;
+        color: $white;
+        font: $regular 80px $Montserrat;
+        letter-spacing: 4px;
+
+        @include media('<widescreen') {
+            font-size: 50px;
+        }
+
+        @include media('<tablet') {
+            font-size: 36px;
+        }
+
+        @include media('<phone') {
+            margin-bottom: 16px;
+            font-size: 30px;
+            font-weight: $medium;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    .text {
+        margin-bottom: 40px;
+        color: $white;
+        font: $medium 18px/1.4 $Montserrat;
+        letter-spacing: 0.36px;
+
+        @include media('<phone') {
+            margin-bottom: 24px;
+            font-size: 16px;
+            font-weight: $regular;
+        }
+    }
+}
