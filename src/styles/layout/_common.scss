@@ -7,8 +7,6 @@
     display: grid;
     place-items: center;
 
-    $mainAnimSpeed: 1.2s;
-
     &::before {
         content: '';
         position: absolute;
