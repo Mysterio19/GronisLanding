@@ -180,19 +180,15 @@ main {
         }
     }
 
+    &:hover {
+        font-weight: $semi-bold;
+    }
+
     &.white {
         color: $white;
 
         &::before {
             background-color: $white;
-        }
-
-        &:hover {
-            text-shadow: 0 0 2px $white;
-
-            &::before {
-                box-shadow: 0 0 2px $white;
-            }
         }
     }
 
@@ -201,14 +197,6 @@ main {
 
         &::before {
             background-color: $accent;
-        }
-
-        &:hover {
-            text-shadow: 0 0 2px $accent;
-
-            &::before {
-                box-shadow: 0 0 2px $accent;
-            }
         }
     }
 }
@@ -234,10 +222,6 @@ main {
             }
         }
     }
-}
-
-*::-webkit-scrollbar {
-    width: 10px;
 }
 
 *::-webkit-scrollbar-track {
