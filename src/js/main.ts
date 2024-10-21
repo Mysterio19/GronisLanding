@@ -24,21 +24,36 @@ for (let i = 0; i < linkClose.length; ++i) {
 
 // Added class for header when scroll after section 
 
-const header: HTMLElement | null = document.getElementById('header');
-const mainSection = document.querySelector('[data-section="main"]');
+const darkSections = document.querySelectorAll<HTMLElement>('[data-section="dark"]');
+const header = document.querySelector<HTMLElement>('header');
 
-if (header && mainSection) {
-  window.addEventListener('scroll', () => {
-    const mainRect = mainSection.getBoundingClientRect();
-    
-    if (window.scrollY > (mainRect.bottom + window.scrollY)) {
-      header.classList.add('white');
-    } else {
+if (darkSections.length > 0) { 
+  function updateHeaderClass() {
+    if (!header) return;
+
+    let isClassAdded = false;
+
+    darkSections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      
+      if (rect.top < 0 && rect.bottom > 0) {
+        header.classList.remove('white');
+        isClassAdded = false;
+      } else if (rect.bottom < 0) {
+        header.classList.add('white');
+        isClassAdded = true; 
+      }
+    });
+
+    if (!isClassAdded) {
       header.classList.remove('white');
     }
-  });
-}
+  }
 
+  window.addEventListener('scroll', updateHeaderClass);
+  updateHeaderClass();
+  window.addEventListener('resize', updateHeaderClass);
+}
 
 // Deleted header height when scroll to anchor
 
