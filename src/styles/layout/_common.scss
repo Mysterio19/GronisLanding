@@ -689,8 +689,6 @@
     }
 
     .btn {
-        min-width: 270px;
-
         @include media('<phone') {
             width: 100%;
         }
