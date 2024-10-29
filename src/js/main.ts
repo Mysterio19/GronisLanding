@@ -77,6 +77,15 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', scrollToAnchor);
 });
 
+// Remove anchor when we reloaded page
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+  if (window.location.hash) {
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+});
+
 // Accordion 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -111,7 +120,7 @@ const onEntry: IntersectionObserverCallback = (entry) => {
   });
 };
 
-const options = { threshold: [0.5] };
+const options = { threshold: [0.2] };
 const observer = new IntersectionObserver(onEntry, options);
 const elements = document.querySelectorAll('.anim');
 for (const elm of elements) {
@@ -243,6 +252,7 @@ if (paginationItems.length === 0) { /* empty */ } else {
       currentPage++;
       showPage(currentPage);
       updatePaginationButtons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -251,6 +261,7 @@ if (paginationItems.length === 0) { /* empty */ } else {
       currentPage--;
       showPage(currentPage);
       updatePaginationButtons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -258,6 +269,7 @@ if (paginationItems.length === 0) { /* empty */ } else {
     currentPage = page;
     showPage(currentPage);
     updatePaginationButtons();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   if (paginationItems.length > itemsPerPage) {
@@ -276,6 +288,7 @@ if (paginationItems.length === 0) { /* empty */ } else {
     document.querySelector('.pagination')!.style.display = 'none';
   }
 }
+
 
 // For sticky policy sitbar
 
